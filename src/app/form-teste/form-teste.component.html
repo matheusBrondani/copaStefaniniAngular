@@ -1,38 +1,5 @@
-<div class="jumbotron">    
-    <hr />
-    <div class="alert alert-success hidden" role="alert">
-      Formulário enviado com sucesso!
-    </div>
-  
-    <form *ngIf="!sucesso" (ngSubmit)="enviar()">
-        <div class="form-group">
-          <label class="control-label" for="nome">Nome</label>
-          <input type="text" class="form-control" name="nome"
-            id="nome" [(ngModel)]="aluno.nome">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="email">Email</label>
-          <input type="text" class="form-control" name="email" 
-            id="email" [(ngModel)]="aluno.email">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="idade">Idade</label>
-          <input type="text" class="form-control" name="idade" 
-            id="idade" [(ngModel)]="aluno.idade">
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="curso">Curso</label>
-          <select name="curso" id="curso" class="form-control"
-            [(ngModel)]="aluno.curso">
-            <option value="">Selecione</option>
-            <option *ngFor="let curso of cursos" [value]="curso.codigo">
-              {{curso.nome}}
-            </option>
-          </select>
-        </div>
-        <hr />
-        <div class="form-group text-center">
-          <button type="submit" class="btn btn-primary">Enviar</button>
-        </div>
-      </form>
-  </div>
+<nav>
+    <a routerLink="time" routerLinkActive="active">Time</a> |
+    <a routerLink="jogador" routerLinkActive="active">Jogador</a>
+</nav>
+<router-outlet></router-outlet>
