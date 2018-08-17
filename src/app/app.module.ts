@@ -11,7 +11,7 @@ import { CpfMask2Pipe } from './core/pipes/cpf-mask2.pipe';
   declarations: [
     AppComponent,
     CpfMask2Pipe,
-    routingComponents
+    routingComponents,
   ],
   imports: [
     BrowserModule,
