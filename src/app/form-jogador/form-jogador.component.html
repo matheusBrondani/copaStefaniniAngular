@@ -1,22 +1,24 @@
 <form>
   <div class="form-group">
     <label class="control-label" for="nomeJogador">Nome</label>
-    <input type="text" class="form-control" name="nomeJogador" id="nomeJogador">
+    <input type="text" class="form-control" name="nomeJogador" id="nomeJogador" [(ngModel)]="jogador.nome">
   </div>
   <div class="form-group">
     <label class="control-label" for="posicoes">Posição</label>
-    <select name="posicoes" id="posicoes" class="form-control">
+    <select name="posicoes" id="posicoes" class="form-control" [(ngModel)]="jogador.posicao">
+      <option value="">Selecione</option>
       <option *ngFor="let pos of listPosicoes" value="{{pos.idPosicao}}">{{pos.nome}}</option>
     </select>
   </div>
   <div class="form-group">
     <label class="control-label" for="camisa">N° Camisa</label>
-    <input type="number" class="form-control" name="camisa" id="camisa">
+    <input type="number" class="form-control" name="camisa" id="camisa" min="0">
   </div>
   <div class="form-group">
     <label class="control-label" for="times">Time</label>
-    <select name="times" id="times" class="form-control">
-      <option *ngFor="let pos of listPosicoes" value="{{pos.idPosicao}}">{{pos.nome}}</option>
+    <select name="times" id="times" class="form-control" [(ngModel)]="jogador.time">
+      <option value="">Selecione</option>
+      <option *ngFor="let time of listTimes" value="{{time.idTime}}">{{time.nome}}</option>
     </select>
   </div>
   <hr />

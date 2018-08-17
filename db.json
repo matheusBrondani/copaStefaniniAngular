@@ -1,0 +1,52 @@
+{
+    "posicao": [
+        { "idPosicao": 0, "nome": "Goleiro"},
+        { "idPosicao": 1, "nome": "Zagueiro 1"},
+        { "idPosicao": 2, "nome": "Zagueiro 2"},
+        { "idPosicao": 3, "nome": "Zagueiro 3"},
+        { "idPosicao": 4, "nome": "Zagueiro 4"},
+        { "idPosicao": 5, "nome": "Meio-campo 1"},
+        { "idPosicao": 6, "nome": "Meio-campo 2"},
+        { "idPosicao": 7, "nome": "Meio-campo 3"},
+        { "idPosicao": 8, "nome": "Meio-campo 4"},
+        { "idPosicao": 9, "nome": "Atacante 1"},
+        { "idPosicao": 10, "nome": "Atacante 2"}
+    ],
+    "times": [
+        { "idTime": 1, "nome": "Jurubeba F.C.", "nomeEstadio": "Maracabeba" },
+        { "idTime": 2, "nome": "Wizard Gizzard F.C.", "nomeEstadio": "Wizard's Stadium" },
+        { "idTime": 3, "nome": "Sem Grana F.C.", "nomeEstadio": "Minha Carteira" }
+    ],
+    "jogadores": [
+        { "idJog": 0, "nome": "Marquinhos Boleiro", "idPos": 0, "camisa": 1,"idTime": 1,"cap": 0},
+        { "idJog": 1, "nome": "Ronaldo Fenomeno", "idPos": 1, "camisa": 22,"idTime": 1,"cap": 0},
+        { "idJog": 2, "nome": "Galvão Bonno", "idPos": 2, "camisa": 33,"idTime": 1,"cap": 0},
+        { "idJog": 3, "nome": "João Jogador", "idPos": 3, "camisa": 44,"idTime": 1,"cap": 0},
+        { "idJog": 4, "nome": "Giuberto NãoGoleiro", "idPos": 4, "camisa": 55,"idTime": 1,"cap": 0},
+        { "idJog": 5, "nome": "Alberto JogaMuito", "idPos": 5, "camisa": 66,"idTime": 1,"cap": 0},
+        { "idJog": 6, "nome": "Roberto JogaPouco", "idPos": 6, "camisa": 77,"idTime": 1,"cap": 0},
+        { "idJog": 7, "nome": "Adalberto JogaRazoavel", "idPos": 7, "camisa": 88,"idTime": 1,"cap": 0},
+        { "idJog": 8, "nome": "Dagoberto SoCorre", "idPos": 8, "camisa": 99,"idTime": 1,"cap": 0},
+        { "idJog": 9, "nome": "Qualquerberto EsseGasta", "idPos": 9, "camisa": 245,"idTime": 1,"cap": 0},
+        { "idJog": 10, "nome": "Michael Jackson", "idPos": 10, "camisa": 35,"idTime": 1,"cap": 1},
+        { "idJog": 11, "nome": "Oliver Green", "idPos": 11, "camisa": 34,"idTime": 1,"cap": 0},
+        { "idJog": 12, "nome": "Muro da Silva", "idPos": 0, "camisa": 23,"idTime": 2,"cap": 1},
+        { "idJog": 13, "nome": "Geromel do Smurf", "idPos": 1, "camisa": 24,"idTime": 2,"cap": 0},
+        { "idJog": 14, "nome": "Lelogas Elfo", "idPos": 2, "camisa": 25,"idTime": 2,"cap": 0},
+        { "idJog": 15, "nome": "Gandalf Mago", "idPos": 3, "camisa": 21,"idTime": 2,"cap": 0},
+        { "idJog": 16, "nome": "Tolkien Escritor", "idPos": 4, "camisa": 51,"idTime": 2,"cap": 0},
+        { "idJog": 17, "nome": "Luke CeuAndante", "idPos": 5, "camisa": 65,"idTime": 2,"cap": 0},
+        { "idJog": 18, "nome": "Darth Vader", "idPos": 6, "camisa": 34,"idTime": 2,"cap": 0},
+        { "idJog": 19, "nome": "Leia Organa", "idPos": 7, "camisa": 5,"idTime": 2,"cap": 0},
+        { "idJog": 20, "nome": "Han Chão", "idPos": 8, "camisa": 6,"idTime": 2,"cap": 0},
+        { "idJog": 21, "nome": "R2D2", "idPos": 9, "camisa": 124,"idTime": 2,"cap": 0},
+        { "idJog": 22, "nome": "C3PO", "idPos": 10, "camisa": 51,"idTime": 2,"cap": 0},
+        { "idJog": 23, "nome": "Igor Oliveira", "idPos": 11, "camisa": 1242,"idTime": 2,"cap": 0},
+        { "idJog": 24, "nome": "Giuliano Perreira", "idPos": 10, "camisa": 2,"idTime": 3,"cap": 0},
+        { "idJog": 25, "nome": "Aha de Oliveira", "idPos": 5, "camisa": 6,"idTime": 3,"cap": 0},
+        { "idJog": 26, "nome": "Nome Aleatório", "idPos": 0, "camisa": 1,"idTime": 3,"cap": 0},
+        { "idJog": 27, "nome": "Jogador Muito Caro", "idPos": 10, "camisa": 7,"idTime": null,"cap": null},
+        { "idJog": 28, "nome": "Jogador Sample", "idPos": 5, "camisa": 34,"idTime": null,"cap": null},
+        { "idJog": 29, "nome": "Ultimo Jogador", "idPos": 7, "camisa": 69,"idTime": null,"cap": null}
+    ]
+}    

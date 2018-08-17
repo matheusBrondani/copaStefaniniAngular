@@ -5,6 +5,6 @@ export class Time {
         public idTime: number,
         public nome: string,
         public nomeEstadio: string,
-        public jogadores: Jogador[]
+        public jogadores?: Jogador[]
     ){}
 }
