@@ -16,6 +16,7 @@ export class FormJogadorComponent implements OnInit {
 
   constructor() {
     this.jogador = new Jogador();
+    this.jogador.posicao = 0;
     this.listPosicoes = [
       new Posicao(0,'Goleiro'),
       new Posicao(1,'Zagueiro 1'),

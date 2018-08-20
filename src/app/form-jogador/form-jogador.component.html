@@ -1,4 +1,4 @@
-<form>
+<form class="container">
   <div class="form-group">
     <label class="control-label" for="nomeJogador">Nome</label>
     <input type="text" class="form-control" name="nomeJogador" id="nomeJogador" [(ngModel)]="jogador.nome">
@@ -6,7 +6,6 @@
   <div class="form-group">
     <label class="control-label" for="posicoes">Posição</label>
     <select name="posicoes" id="posicoes" class="form-control" [(ngModel)]="jogador.posicao">
-      <option value="">Selecione</option>
       <option *ngFor="let pos of listPosicoes" value="{{pos.idPosicao}}">{{pos.nome}}</option>
     </select>
   </div>
