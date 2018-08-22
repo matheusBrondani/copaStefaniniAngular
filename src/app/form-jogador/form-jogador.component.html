@@ -15,8 +15,7 @@
   </div>
   <div class="form-group">
     <label class="control-label" for="times">Time</label>
-    <select name="times" id="times" class="form-control" [(ngModel)]="jogador.time">
-      <option value="">Selecione</option>
+    <select name="idTime" id="idTime" class="form-control" [(ngModel)]="jogador.idTime">
       <option *ngFor="let time of listTimes" value="{{time.idTime}}">{{time.nome}}</option>
     </select>
   </div>

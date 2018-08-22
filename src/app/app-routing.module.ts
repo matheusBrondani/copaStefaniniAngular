@@ -6,6 +6,8 @@ import { FormTesteComponent } from './form-teste/form-teste.component';
 import { FormJogadorComponent } from './form-jogador/form-jogador.component';
 import { FormTimeComponent } from './form-time/form-time.component';
 import { ListSomethingComponent } from "./list-something/list-something.component";
+import { ListTeamComponent } from "./list-team/list-team.component";
+import { ListPlayerComponent } from "./list-player/list-player.component";
 
 const routes: Routes = [
     {
@@ -20,7 +22,9 @@ const routes: Routes = [
             component: FormJogadorComponent
         }]
     },
-    {path: 'list', component: ListSomethingComponent}
+    {path: 'listPlayers', component: ListPlayerComponent},
+    {path: 'listTeams', component: ListTeamComponent},
+    {path: 'listAll', component: ListSomethingComponent}
 ]
 
 @NgModule({
