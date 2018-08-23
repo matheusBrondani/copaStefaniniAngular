@@ -1,3 +1,26 @@
-<p>
-  form-jogador works!
-</p>
+<form class="container">
+  <div class="form-group">
+    <label class="control-label" for="nomeJogador">Nome</label>
+    <input type="text" class="form-control" name="nomeJogador" id="nomeJogador" [(ngModel)]="jogador.nome">
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="posicoes">Posição</label>
+    <select name="posicoes" id="posicoes" class="form-control" [(ngModel)]="jogador.posicao">
+      <option *ngFor="let pos of listPosicoes" value="{{pos.idPosicao}}">{{pos.nome}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="camisa">N° Camisa</label>
+    <input type="number" class="form-control" name="camisa" id="camisa" min="0">
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="times">Time</label>
+    <select name="idTime" id="idTime" class="form-control" [(ngModel)]="jogador.idTime">
+      <option *ngFor="let time of listTimes" value="{{time.idTime}}">{{time.nome}}</option>
+    </select>
+  </div>
+  <hr />
+  <div class="form-group text-center">
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </div>
+</form>

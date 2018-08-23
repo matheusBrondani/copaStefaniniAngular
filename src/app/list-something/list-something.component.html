@@ -1,15 +1,15 @@
 <h1>Listagem de times e seus jogadores</h1>
 
 <ul>
-    <li *ngFor="let t of times;">
-        {{t.nome}} | 
-        {{t.nomeEstadio}}         
+    <li *ngFor="let t of teams;">
+        {{t.name}} | 
+        {{t.nameStadium}}         
         <ul>
-            <li *ngFor="let jog of t.jogadores;">
-                {{jog.nome}} |
-                {{jog.posicao}} |
-                {{jog.camisa}}
-                <a *ngIf="jog.cap > 0"> | É o Capitão do time</a>
+            <li *ngFor="let jog of t.listPlayers;">
+                {{jog.name}} |
+                {{jog.position}} |
+                {{jog.shirt}}
+                <span *ngIf="jog.cap > 0"> | É o Capitão do time</span>
             </li>
         </ul>        
     </li>
