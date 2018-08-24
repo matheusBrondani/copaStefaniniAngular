@@ -1,3 +1,65 @@
-<p>
-  list-player works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1">
+      ID
+    </div>
+    <div class="col-sm-3">
+      Name
+    </div>
+    <div class="col-sm">
+      Position
+    </div>
+    <div class="col-sm">
+      Shirt
+    </div>
+    <div class="col-sm">
+      Cap
+    </div>
+    <div class="col-sm">
+      Holder
+    </div>
+    <div class="col-sm">
+      IdTeam
+    </div>
+    <div class="col-sm">
+      Editar
+    </div>
+    <div class="col-sm">
+      Remover
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngFor="let jog of listPlayers;">
+      <div class="col-sm-1">
+        {{jog.idPlayer}}
+      </div>
+      <div class="col-sm-3">
+        {{jog.name}}
+      </div>
+      <div class="col-sm">
+        {{jog.position}}
+      </div>
+      <div class="col-sm">
+        {{jog.shirt}}
+      </div>
+      <div class="col-sm">
+        <span *ngIf="jog.cap > 0">Capitão</span>
+      </div>
+      <div class="col-sm">
+        {{jog.holder}}
+      </div>
+      <div class="col-sm">
+        {{jog.idTeam}}
+      </div>
+      <div class="col-sm">
+        X
+      </div>
+      <div class="col-sm">
+        X
+      </div>
+    </div>
+</div>
+<!-- 
+<div class="alert alert-warning" role="alert">
+    This is a warning alert—check it out!
+</div> -->
