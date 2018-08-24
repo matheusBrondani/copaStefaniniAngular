@@ -21,7 +21,8 @@ export class TeamService {
     return this.http.get<Team[]>(this.teamUrl);
   }
 
-  addTeamAPI(newTeam: Team):void{
-    this.http.post<Team>(this.teamUrl,newTeam.toJSON());
+  addTeamAPI(newTeam: Team): Observable<Team>{
+    return this.http.post<Team>(this.teamUrl,newTeam);
+    // return new Team(666,"Teste Chegou aqui","LALALALALA",[]);
   }
 }

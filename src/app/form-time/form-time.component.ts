@@ -10,17 +10,20 @@ import { TeamService } from '../core/services/team.service';
 export class FormTimeComponent implements OnInit {
 
   private newTeam: Team;
+  private postedTeam: Team;
 
   constructor(
     private teamService: TeamService
   ) {
     this.newTeam = new Team();
-   }
+    this.postedTeam = new Team();
+  }
 
   ngOnInit() {
   }
   
-  addPlayer(): void{
-    this.teamService.addTeamAPI(this.newTeam);
+  onSubmit(){
+    this.teamService.addTeamAPI(this.newTeam).subscribe(team => this.postedTeam = team);
+    // this.submitted = true;
   }
 }
