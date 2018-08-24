@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Posicao } from '../core/models/posicao';
-import { Time } from "../core/models/time";
-import { Jogador } from "../core/models/jogador";
+import { Team } from "../core/models/team";
+import { Player } from "../core/models/player";
 
 @Component({
   selector: 'app-form-jogador',
@@ -11,13 +11,13 @@ import { Jogador } from "../core/models/jogador";
 export class FormJogadorComponent implements OnInit {
 
   public listPosicoes: Posicao[];
-  public listTimes: Time[];
-  public jogador: Jogador;
+  public listTimes: Team[];
+  public jogador: Player;
 
   constructor() {
-    this.jogador = new Jogador();
-    this.jogador.posicao = 0;
-    this.jogador.idTime = 1;
+    this.jogador = new Player();
+    this.jogador.position = 0;
+    this.jogador.idTeam = 1;
     this.listPosicoes = [
       new Posicao(0,'Goleiro'),
       new Posicao(1,'Zagueiro 1'),
@@ -33,9 +33,9 @@ export class FormJogadorComponent implements OnInit {
     ];
 
     this.listTimes = [
-      new Time(1,'Jurubeba F.C.','Maracabeba'),
-      new Time(2,'Wizard Gizzard F.C.','Wizard\'s Stadium'),
-      new Time(3,'Sem Grana F.C.','Minha Carteira'),
+      new Team(1,'Jurubeba F.C.','Maracabeba'),
+      new Team(2,'Wizard Gizzard F.C.','Wizard\'s Stadium'),
+      new Team(3,'Sem Grana F.C.','Minha Carteira'),
     ];
   }
 

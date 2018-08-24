@@ -3,17 +3,17 @@
 </div> -->
 
 
-<form class="container">
+<form class="container" #teamForm="ngForm">
   <div class="form-group">
     <label class="control-label" for="nome">Nome do Time</label>
-    <input type="text" class="form-control" name="nome" id="nome">
+    <input type="text" class="form-control" id="name" required [(ngModel)]="newTeam.name" name="name">
   </div>
   <div class="form-group">
-    <label class="control-label" for="email">Nome do Estádio</label>
-    <input type="text" class="form-control" name="email" id="email">
+    <label class="control-label" for="nameStadium">Nome do Estádio</label>
+    <input type="text" class="form-control" id="nameStadium" required [(ngModel)]="newTeam.nameStadium" name="nameStadium">
   </div> 
   <hr />
   <div class="form-group text-center">
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" class="btn btn-primary" (click)="addPlayer(); teamForm.reset()">Enviar</button>
   </div>
 </form>
