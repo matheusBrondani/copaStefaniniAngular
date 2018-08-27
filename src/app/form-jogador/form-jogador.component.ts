@@ -2,22 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { Posicao } from '../core/models/posicao';
 import { Team } from "../core/models/team";
 import { Player } from "../core/models/player";
+import { PlayerService } from "../core/services/player.service";
+import { TeamService } from '../core/services/team.service';
 
 @Component({
   selector: 'app-form-jogador',
   templateUrl: './form-jogador.component.html',
   styleUrls: ['./form-jogador.component.css']
 })
+
 export class FormJogadorComponent implements OnInit {
 
   public listPosicoes: Posicao[];
-  public listTimes: Team[];
-  public jogador: Player;
+  public listTeams: Team[];
+  public newPlayer: Player;
+  public postedPlayer: Player;
 
-  constructor() {
-    this.jogador = new Player();
-    this.jogador.position = 0;
-    this.jogador.idTeam = 1;
+  constructor(
+    private playerService: PlayerService,
+    private teamService: TeamService
+  ) {
+    this.newPlayer = new Player();
+    this.postedPlayer = new Player();
+    this.newPlayer.position = 0;
+    this.newPlayer.idTeam = 1;
     this.listPosicoes = [
       new Posicao(0,'Goleiro'),
       new Posicao(1,'Zagueiro 1'),
@@ -32,14 +40,13 @@ export class FormJogadorComponent implements OnInit {
       new Posicao(10,'Atacante 2'),
     ];
 
-    this.listTimes = [
-      new Team(1,'Jurubeba F.C.','Maracabeba'),
-      new Team(2,'Wizard Gizzard F.C.','Wizard\'s Stadium'),
-      new Team(3,'Sem Grana F.C.','Minha Carteira'),
-    ];
+    this.teamService.getTeams().subscribe(teams => this.listTeams = teams);
   }
 
   ngOnInit() {
   }
 
+  onSubmit(){
+    this.playerService.addPlayerAPI(this.newPlayer).subscribe(player => this.postedPlayer = player);
+  }
 }

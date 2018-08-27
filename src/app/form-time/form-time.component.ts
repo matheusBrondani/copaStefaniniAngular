@@ -14,16 +14,14 @@ export class FormTimeComponent implements OnInit {
 
   constructor(
     private teamService: TeamService
-  ) {
-    this.newTeam = new Team();
-    this.postedTeam = new Team();
-  }
+  ) {}
 
   ngOnInit() {
+    this.newTeam = new Team();
+    this.postedTeam = new Team();
   }
   
   onSubmit(){
     this.teamService.addTeamAPI(this.newTeam).subscribe(team => this.postedTeam = team);
-    // this.submitted = true;
   }
 }

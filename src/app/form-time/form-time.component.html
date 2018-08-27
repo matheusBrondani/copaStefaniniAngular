@@ -1,9 +1,8 @@
-<!-- <div class="alert alert-success" role="alert">
-  Formulário enviado com sucesso!
-</div> -->
-
 <div class="container">
-  <form  (ngSubmit)="onSubmit()" #teamForm="ngForm">
+  <div class="alert alert-success" hidden role="alert">
+    Formulário enviado com sucesso!
+  </div>
+  <form (ngSubmit)="onSubmit()" #teamForm="ngForm">
     <div class="form-group">
       <label class="control-label" for="nome">Nome do Time</label>
       <input type="text" class="form-control" id="name" [(ngModel)]="newTeam.name" name="name">
@@ -19,6 +18,6 @@
   </form>
 </div>
 
-{{postedTeam.idTeam}}<br>
-{{postedTeam.name}}<br>
+{{postedTeam.idTeam}}<br> 
+{{postedTeam.name}}<br> 
 {{postedTeam.nameStadium}}<br>

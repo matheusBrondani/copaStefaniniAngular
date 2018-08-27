@@ -5,7 +5,7 @@ export class Player {
         public position?: number,
         public shirt?: number,
         public idTeam?: number,
-        public cap?: number,
+        public cap?: boolean,
         public holder?: boolean
     ){}
 }
