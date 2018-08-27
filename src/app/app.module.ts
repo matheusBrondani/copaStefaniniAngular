@@ -9,6 +9,7 @@ import { FormsModule }    from '@angular/forms';
 import { CpfMask2Pipe } from './core/pipes/cpf-mask2.pipe';
 import { ListPlayerComponent } from './list-player/list-player.component';
 import { ListTeamComponent } from './list-team/list-team.component';
+import { FormTimeComponent } from 'src/app/form-time/form-time.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ListTeamComponent } from './list-team/list-team.component';
     routingComponents,
     ListPlayerComponent,
     ListTeamComponent,
+    FormTimeComponent
   ],
   imports: [
     BrowserModule,

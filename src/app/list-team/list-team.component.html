@@ -1,3 +1,37 @@
-<p>
-  list-team works!
-</p>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        ID
+      </div>
+      <div class="col-sm">
+        Name
+      </div>
+      <div class="col-sm">
+        Name Stadium
+      </div>
+      <div class="col-sm">
+        Editar
+      </div>
+      <div class="col-sm">
+        Remover
+      </div>      
+    </div>
+    <hr>
+    <div class="row" *ngFor="let team of listTeams;">
+        <div class="col-sm">
+          {{team.idTeam}}
+        </div>
+        <div class="col-sm">
+          {{team.name}}
+        </div>
+        <div class="col-sm">
+          {{team.nameStadium}}
+        </div>
+        <div class="col-sm">
+          X
+        </div>
+        <div class="col-sm">
+          X
+        </div>
+      </div>
+  </div>

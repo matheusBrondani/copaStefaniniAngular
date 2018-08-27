@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Team } from '../core/models/team';
+import { TeamService } from '../core/services/team.service';
 
 @Component({
   selector: 'app-form-time',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormTimeComponent implements OnInit {
 
-  constructor() { }
+  private newTeam: Team;
+  private postedTeam: Team;
+
+  constructor(
+    private teamService: TeamService
+  ) {}
 
   ngOnInit() {
+    this.newTeam = new Team();
+    this.postedTeam = new Team();
   }
-
+  
+  onSubmit(){
+    this.teamService.addTeamAPI(this.newTeam).subscribe(team => this.postedTeam = team);
+  }
 }

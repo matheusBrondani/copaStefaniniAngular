@@ -1,26 +1,57 @@
-<form class="container">
-  <div class="form-group">
-    <label class="control-label" for="nomeJogador">Nome</label>
-    <input type="text" class="form-control" name="nomeJogador" id="nomeJogador" [(ngModel)]="jogador.nome">
+<div class="container">
+  <div class="alert alert-success" hidden role="alert">
+    Formulário enviado com sucesso!
   </div>
-  <div class="form-group">
-    <label class="control-label" for="posicoes">Posição</label>
-    <select name="posicoes" id="posicoes" class="form-control" [(ngModel)]="jogador.posicao">
-      <option *ngFor="let pos of listPosicoes" value="{{pos.idPosicao}}">{{pos.nome}}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label class="control-label" for="camisa">N° Camisa</label>
-    <input type="number" class="form-control" name="camisa" id="camisa" min="0">
-  </div>
-  <div class="form-group">
-    <label class="control-label" for="times">Time</label>
-    <select name="idTime" id="idTime" class="form-control" [(ngModel)]="jogador.idTime">
-      <option *ngFor="let time of listTimes" value="{{time.idTime}}">{{time.nome}}</option>
-    </select>
-  </div>
-  <hr />
-  <div class="form-group text-center">
-    <button type="submit" class="btn btn-primary">Enviar</button>
-  </div>
-</form>
+  <form (ngSubmit)="onSubmit()" #playerForm="ngForm">
+    <div class="form-group">
+      <label class="control-label" for="namePlayer">Nome</label>
+      <input type="text" class="form-control" name="namePlayer" id="namePlayer" [(ngModel)]="newPlayer.name">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="position">Posição</label>
+      <select name="position" id="position" class="form-control" [(ngModel)]="newPlayer.position">
+        <option *ngFor="let pos of listPosicoes" value="{{pos.idPosicao}}">{{pos.nome}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="shirt">N° Camisa</label>
+      <input type="number" class="form-control" name="shirt" id="shirt" min="0" [(ngModel)]="newPlayer.shirt">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="idTeam">Time</label>
+      <select name="idTeam" id="idTeam" class="form-control" [(ngModel)]="newPlayer.idTeam">
+        <option *ngFor="let team of listTeams" value="{{team.idTeam}}">{{team.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="shirt">É capitão</label>
+      <input type="checkbox" name="cap" id="cap" min="0" [(ngModel)]="newPlayer.cap">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="shirt">É titular</label>
+      <input type="checkbox" name="holder" id="holder" min="0" [(ngModel)]="newPlayer.holder">
+    </div>
+    <hr />
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
+</div>
+
+
+<!-- {{postedPlayer.idPlayer}}<br> 
+{{postedPlayer.name}}<br> 
+{{postedPlayer.position}}<br> 
+{{postedPlayer.shirt}}<br> 
+{{postedPlayer.idTeam}}<br> 
+{{postedPlayer.cap}}<br> 
+{{postedPlayer.holder}}<br> -->
+
+{{newPlayer.idPlayer}}<br> 
+{{newPlayer.name}}<br> 
+{{newPlayer.position}}<br> 
+{{newPlayer.shirt}}<br> 
+{{newPlayer.idTeam}}<br> 
+{{newPlayer.cap}}<br> 
+{{newPlayer.holder}}<br>
+

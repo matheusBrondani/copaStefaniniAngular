@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Time } from '../core/models/time';
-import { Jogador } from '../core/models/jogador';
-import { TimeService } from "../core/services/time.service";
+import { Team } from '../core/models/team';
+import { Player } from '../core/models/player';
+import { TeamService } from "../core/services/team.service";
 import { Observable, of } from 'rxjs';
 import { CpfMask2Pipe } from "../core/pipes/cpf-mask2.pipe";
 
@@ -14,10 +14,10 @@ import { CpfMask2Pipe } from "../core/pipes/cpf-mask2.pipe";
 
 export class ListSomethingComponent implements OnInit {
 
-  public teams: Time[];
+  public teams: Team[];
  
   constructor(
-    private teamService: TimeService
+    private teamService: TeamService
   ){}
 
   ngOnInit() {
