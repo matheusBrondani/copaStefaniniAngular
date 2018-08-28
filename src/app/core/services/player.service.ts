@@ -11,17 +11,26 @@ import { Team } from '../models/team';
 export class PlayerService {
 
   public players: Player[];
-  private playerUrl = environment.apiUrl+'api/player/';
+  private playerUrl = environment.apiUrl + 'api/player/';
 
   constructor(
-    private http: HttpClient  
+    private http: HttpClient
   ) { }
 
   getPlayers(): Observable<Player[]> {
     return this.http.get<Player[]>(this.playerUrl);
   }
 
-  addPlayerAPI(newPlayer: Player): Observable<Player>{
-    return this.http.post<Player>(this.playerUrl,newPlayer);
+  getPlayerById(id: number): Observable<Player[]> {
+    return this.http.get<Player[]>(this.playerUrl + id);
+  }
+
+  addPlayerAPI(newPlayer: Player): Observable<Player> {
+    return this.http.post<Player>(this.playerUrl, newPlayer);
+  }
+
+  delPlayer(id: number, name: string): Observable<{}> {
+    const url = `${this.playerUrl}${id}`
+    return this.http.delete(url.toString());
   }
 }

@@ -1,37 +1,58 @@
-<div class="container">
-    <div class="row">
-      <div class="col-sm">
-        ID
-      </div>
-      <div class="col-sm">
-        Name
-      </div>
-      <div class="col-sm">
-        Name Stadium
-      </div>
-      <div class="col-sm">
-        Editar
-      </div>
-      <div class="col-sm">
-        Remover
-      </div>      
+<div class="container" *ngIf="!editTeam">
+  <div class="row">
+    <div class="col-sm">
+      ID
     </div>
-    <hr>
-    <div class="row" *ngFor="let team of listTeams;">
-        <div class="col-sm">
-          {{team.idTeam}}
-        </div>
-        <div class="col-sm">
-          {{team.name}}
-        </div>
-        <div class="col-sm">
-          {{team.nameStadium}}
-        </div>
-        <div class="col-sm">
-          X
-        </div>
-        <div class="col-sm">
-          X
-        </div>
-      </div>
+    <div class="col-sm">
+      Name
+    </div>
+    <div class="col-sm">
+      Name Stadium
+    </div>
+    <div class="col-sm">
+      Edit
+    </div>
+    <div class="col-sm">
+      Remove
+    </div>
   </div>
+  <hr>
+  <div class="row" *ngFor="let team of listTeams;">
+    <div class="col-sm">
+      {{team.idTeam}}
+    </div>
+    <div class="col-sm">
+      {{team.name}}
+    </div>
+    <div class="col-sm">
+      {{team.nameStadium}}
+    </div>
+    <div class="col-sm">
+      <button type="button" class="btn btn-light" (click)="onClickEdit(team.idTeam)">Edit</button>
+    </div>
+    <div class="col-sm">
+      <button type="button" class="btn btn-light" (click)="onClickDel(team.idTeam, team.name)">Remove</button>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="editTeam">
+  <div class="alert alert-success" hidden role="alert">
+    Formulário enviado com sucesso!
+  </div>
+  <form (ngSubmit)="onSubmit()" #editTeamForm="ngForm">
+    <div class="form-group">
+      <label class="control-label" for="name">Nome do Time</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="changedTeam.name" name="name">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="nameStadium">Nome do Estádio</label>
+      <input type="text" class="form-control" id="nameStadium" [(ngModel)]="changedTeam.nameStadium" name="nameStadium">
+    </div>
+    <hr />
+    <div class="form-group">
+      <button type="button" class="btn btn-primary" (click)="goBack(); editTeamForm.reset()">Voltar</button> |
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+  </form>
+</div>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-1">
+    <div class="col-sm-0">
       ID
     </div>
     <div class="col-sm-3">
@@ -30,7 +30,7 @@
   </div>
   <hr>
   <div class="row" *ngFor="let jog of listPlayers;">
-      <div class="col-sm-1">
+      <div class="col-sm-0">
         {{jog.idPlayer}}
       </div>
       <div class="col-sm-3">
@@ -52,10 +52,10 @@
         {{jog.idTeam}}
       </div>
       <div class="col-sm">
-        X
+          <button type="button" class="btn btn-light">Edit</button>
       </div>
       <div class="col-sm">
-        X
+          <button type="button" class="btn btn-light" (click)="onClickDel(jog.idPlayer, jog.name)">Remove</button>
       </div>
     </div>
 </div>

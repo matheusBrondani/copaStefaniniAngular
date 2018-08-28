@@ -14,11 +14,11 @@ const routes: Routes = [
         path: 'form', 
         component: FormTesteComponent,
         children: [{
-            path: 'time',
+            path: 'team',
             component: FormTimeComponent
         },
         {
-            path: 'jogador',
+            path: 'player',
             component: FormJogadorComponent
         }]
     },

@@ -19,7 +19,17 @@ export class ListPlayerComponent implements OnInit {
     this.getPlayers();
   }
 
-  getPlayers(): void{
+  getPlayers(): void {
     this.playerService.getPlayers().subscribe(players => this.listPlayers = players);
+  }
+
+  onClickDel(index: number, name: string) {
+    if (confirm("Você realmente deseja remover o jogador " + name + " ?")) {
+      this.playerService.delPlayer(index, name).subscribe(
+        (res) => {
+          this.getPlayers()
+        }
+      );
+    }
   }
 }

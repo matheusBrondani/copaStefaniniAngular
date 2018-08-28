@@ -11,17 +11,32 @@ import { environment } from '../../../environments/environment';
 export class TeamService {
 
   public teams: Team[];
-  private teamUrl = environment.apiUrl+'api/team/';
+  private teamUrl = environment.apiUrl + 'api/team/';
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) { }
 
   getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>(this.teamUrl);
   }
 
-  addTeamAPI(newTeam: Team): Observable<Team>{
-    return this.http.post<Team>(this.teamUrl,newTeam);
+  getTeamById(id: number): Observable<Team> {
+    return this.http.get<Team>(this.teamUrl + id);
+  }
+
+  addTeamAPI(newTeam: Team): Observable<Team> {
+    return this.http.post<Team>(this.teamUrl, newTeam);
+  }
+
+  updateTeam(toUpTeam: Team): Observable<Team> {
+    const url = `${this.teamUrl}${toUpTeam.idTeam}`
+    //Ta dando erro aqui
+    return this.http.put<Team>('http://localhost:58661/api/team/1', toUpTeam);
+  }
+
+  delTeam(id: number): Observable<{}> {
+    const url = `${this.teamUrl}${id}`
+    return this.http.delete(url.toString());
   }
 }
