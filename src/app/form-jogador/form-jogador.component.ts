@@ -47,6 +47,13 @@ export class FormJogadorComponent implements OnInit {
   }
 
   onSubmit(){
-    this.playerService.addPlayerAPI(this.newPlayer).subscribe(player => this.postedPlayer = player);
+    this.playerService.addPlayerAPI(this.newPlayer).subscribe(
+      player => {
+        this.postedPlayer = player
+      },
+      error => {
+        alert("Ocorreu algum erro inesperado.")
+      }
+    );
   }
 }

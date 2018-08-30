@@ -37,15 +37,23 @@ export class ListTeamComponent implements OnInit {
   }
 
   onSubmit() {
-    this.teamService.updateTeam(this.changedTeam);
-    
+    this.teamService.updateTeam(this.changedTeam).subscribe(
+      res => {
+        this.goBack();
+        this.getTeams();
+        alert("Alterado com sucesso!");        
+      },
+      error => {
+        alert("Ocorreu um erro!");
+      }
+    )    
   }
 
   onClickDel(index: number, name: string) {
     if (confirm("Você realmente deseja remover o time " + name + " ?")) {
       this.teamService.delTeam(index).subscribe(
         res => {
-          this.getTeams()
+          this.getTeams();
         }
       );
     }

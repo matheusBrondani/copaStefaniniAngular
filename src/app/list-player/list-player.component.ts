@@ -20,7 +20,13 @@ export class ListPlayerComponent implements OnInit {
   }
 
   getPlayers(): void {
-    this.playerService.getPlayers().subscribe(players => this.listPlayers = players);
+    this.playerService.getPlayers().subscribe(
+      players => {
+        this.listPlayers = players
+      },
+      error => {
+        alert("Ocorreu algum problema inesperado.");
+      });
   }
 
   onClickDel(index: number, name: string) {
@@ -28,7 +34,10 @@ export class ListPlayerComponent implements OnInit {
       this.playerService.delPlayer(index, name).subscribe(
         (res) => {
           this.getPlayers()
-        }
+        },
+        error => {
+          alert("Ocorreu algum problema inesperado.");
+        } 
       );
     }
   }

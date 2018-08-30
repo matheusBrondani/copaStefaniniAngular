@@ -30,9 +30,8 @@ export class TeamService {
   }
 
   updateTeam(toUpTeam: Team): Observable<Team> {
-    const url = `${this.teamUrl}${toUpTeam.idTeam}`
-    //Ta dando erro aqui
-    return this.http.put<Team>('http://localhost:58661/api/team/1', toUpTeam);
+    const url = `${this.teamUrl}${toUpTeam.idTeam}`    
+    return this.http.put<Team>(url.toString(), toUpTeam);
   }
 
   delTeam(id: number): Observable<{}> {

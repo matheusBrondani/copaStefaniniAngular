@@ -22,6 +22,13 @@ export class FormTimeComponent implements OnInit {
   }
   
   onSubmit(){
-    this.teamService.addTeamAPI(this.newTeam).subscribe(team => this.postedTeam = team);
+    this.teamService.addTeamAPI(this.newTeam).subscribe(
+      team => {
+        this.postedTeam = team
+      },
+      error => {
+        alert("Ocorreu algum erro inesperado.");
+      }
+    );
   }
 }
