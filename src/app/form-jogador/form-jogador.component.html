@@ -2,38 +2,46 @@
   <div class="alert alert-success" hidden role="alert">
     Formulário enviado com sucesso!
   </div>
-  <form (ngSubmit)="onSubmit()" #playerForm="ngForm">
+  <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+
     <div class="form-group">
-      <label class="control-label" for="namePlayer">Nome</label>
-      <input type="text" class="form-control" name="namePlayer" id="namePlayer" [(ngModel)]="newPlayer.name">
+      <label class="control-label" for="name">Nome</label>
+      <input type="text" class="form-control" name="name" id="name" required formControlName="name">
     </div>
-    <div class="form-group">
-      <label class="control-label" for="position">Posição</label>
-      <select name="position" id="position" class="form-control" [(ngModel)]="newPlayer.position">
-        <option *ngFor="let pos of listPosicoes" value="{{pos.idPosicao}}">{{pos.nome}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="shirt">N° Camisa</label>
-      <input type="number" class="form-control" name="shirt" id="shirt" min="0" [(ngModel)]="newPlayer.shirt">
-    </div>
+    
     <div class="form-group">
       <label class="control-label" for="idTeam">Time</label>
-      <select name="idTeam" id="idTeam" class="form-control" [(ngModel)]="newPlayer.idTeam">
+      <select name="idTeam" id="idTeam" class="form-control" required formControlName="idTeam">
         <option *ngFor="let team of listTeams" value="{{team.idTeam}}">{{team.name}}</option>
       </select>
     </div>
+
     <div class="form-group">
-      <label class="control-label" for="shirt">É capitão</label>
-      <input type="checkbox" name="cap" id="cap" min="0" [(ngModel)]="newPlayer.cap">
+      <label class="control-label" for="position">Posição</label>
+      <select name="position" id="position" class="form-control" required formControlName="position">
+        <option *ngFor="let pos of listPosicoes" value="{{pos.idPosicao}}">{{pos.nome}}</option>
+      </select>
     </div>
+    
     <div class="form-group">
-      <label class="control-label" for="shirt">É titular</label>
-      <input type="checkbox" name="holder" id="holder" min="0" [(ngModel)]="newPlayer.holder">
+      <label class="control-label" for="shirt">N° Camisa</label>
+      <input type="number" class="form-control" name="shirt" id="shirt" min="0" formControlName="shirt">      
     </div>
+    
+    <div class="form-group">
+      <label class="control-label" for="cap">É capitão</label>
+      <input type="checkbox" name="cap" id="cap" formControlName="cap">      
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label" for="holder">É titular</label>
+      <input type="checkbox" name="holder" id="holder" formControlName="holder">      
+    </div>
+    
     <hr />
     <div class="form-group text-center">
-      <button type="submit" class="btn btn-primary" (onClick)="playerForm.reset()">Enviar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="playerForm.invalid">Enviar</button>
     </div>
+
   </form>
 </div>

@@ -5,11 +5,12 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { CpfMask2Pipe } from './core/pipes/cpf-mask2.pipe';
 import { ListPlayerComponent } from './list-player/list-player.component';
 import { ListTeamComponent } from './list-team/list-team.component';
 import { FormTimeComponent } from 'src/app/form-time/form-time.component';
+import { FormJogadorComponent } from 'src/app/form-jogador/form-jogador.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,14 @@ import { FormTimeComponent } from 'src/app/form-time/form-time.component';
     routingComponents,
     ListPlayerComponent,
     ListTeamComponent,
-    FormTimeComponent
+    FormTimeComponent,
+    FormJogadorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],

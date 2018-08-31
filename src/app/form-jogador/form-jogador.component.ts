@@ -4,6 +4,7 @@ import { Team } from "../core/models/team";
 import { Player } from "../core/models/player";
 import { PlayerService } from "../core/services/player.service";
 import { TeamService } from '../core/services/team.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-jogador',
@@ -13,17 +14,17 @@ import { TeamService } from '../core/services/team.service';
 
 export class FormJogadorComponent implements OnInit {
 
-  public listPosicoes: Posicao[];
-  public listTeams: Team[];
-  public newPlayer: Player;
-  public postedPlayer: Player;
+  private listPosicoes: Posicao[];
+  private listTeams: Team[];
+  private newPlayer: Player;
+  playerForm: FormGroup;
 
   constructor(
     private playerService: PlayerService,
     private teamService: TeamService
   ) {
+
     this.newPlayer = new Player();
-    this.postedPlayer = new Player();
     this.newPlayer.position = 0;
     this.newPlayer.idTeam = 1;
     this.listPosicoes = [
@@ -44,12 +45,42 @@ export class FormJogadorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setForm();
   }
 
+  setForm(){
+    this.playerForm = new FormGroup({
+      'name': new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      'idTeam': new FormControl(1, [
+        Validators.required
+      ]),
+      'position': new FormControl(0, [
+        Validators.required
+      ]),
+      'shirt': new FormControl('', [
+        Validators.required,
+        Validators.min(1)
+      ]),
+      'cap': new FormControl(),
+      'holder': new FormControl()
+    });
+  }
+
+  get namePlayer() { return this.playerForm.get('namePlayer'); }
+  get idTeam() { return this.playerForm.get('idTeam'); }
+  get position() { return this.playerForm.get('position'); }
+  get shirt() { return this.playerForm.get('shirt'); }
+  get cap() { return this.playerForm.get('cap'); }
+  get holder() { return this.playerForm.get('holder'); }
+
   onSubmit(){
-    this.playerService.addPlayerAPI(this.newPlayer).subscribe(
-      player => {
-        this.postedPlayer = player
+    this.playerService.addPlayerAPI(this.playerForm.value).subscribe(
+      success => {
+        alert("Jogador cadastrado com sucesso!");
+        this.setForm();
       },
       error => {
         alert("Ocorreu algum erro inesperado.")

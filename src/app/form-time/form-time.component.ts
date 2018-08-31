@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Team } from '../core/models/team';
 import { TeamService } from '../core/services/team.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-time',
@@ -10,21 +11,36 @@ import { TeamService } from '../core/services/team.service';
 export class FormTimeComponent implements OnInit {
 
   private newTeam: Team;
-  private postedTeam: Team;
+  private teamForm: FormGroup;
 
   constructor(
     private teamService: TeamService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.newTeam = new Team();
-    this.postedTeam = new Team();
+
+    this.teamForm = new FormGroup({
+      'name': new FormControl(this.newTeam.name, [
+        Validators.required,
+        Validators.minLength(3)
+        // forbiddenNameValidator(/bob/i)
+      ]),
+      'nameStadium': new FormControl(this.newTeam.nameStadium, [
+        Validators.required,
+        Validators.minLength(3)
+      ])
+    });
   }
-  
-  onSubmit(){
-    this.teamService.addTeamAPI(this.newTeam).subscribe(
-      team => {
-        this.postedTeam = team
+
+  get name() { return this.teamForm.get('name'); }
+  get nameStadium() { return this.teamForm.get('nameStadium'); }
+
+  onSubmit() {
+    this.teamService.addTeamAPI(this.teamForm.value).subscribe(
+      success => {
+        alert("Time cadastrado com sucesso!");
+        this.teamForm.reset();
       },
       error => {
         alert("Ocorreu algum erro inesperado.");
